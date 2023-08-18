@@ -1,0 +1,43 @@
+﻿@model UserViewModel
+
+@{
+    ViewData["Title"] = "UserDetail";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+<div class="container">
+    <br />
+    <br />
+    <div class="card text-white bg-info mb-3" style="max-width: %100;">
+        <div class="card-header">Çalışan</div>
+        <div class="card-body">
+            <h6 class="card-title"><strong>Çalışan Detayları Görüntüleniyor</strong></h6>
+            Id: @Html.DisplayFor(x => x.Id)
+            <br />
+             Ad Soyad: @Html.DisplayFor(x => x.FullName)
+            <br />
+             Kullanıcı Adı: @Html.DisplayFor(x => x.Username)
+            <br />
+             Mail Adresi: @Html.DisplayFor(x => x.Mail)
+            <br />
+             Departman: @Html.DisplayFor(x => x.DepartmentName)
+            <br />
+             Pozisyon: @Html.DisplayFor(x => x.JobName)
+            <br />
+             Kimlik Numarası: @Html.DisplayFor(x => x.NationalityId)
+            <br />
+             Maaş: @Html.DisplayFor(x => x.Salary)
+            <br />
+             Doğum Günü: @Html.DisplayFor(x => x.BirthDate)
+            <br />
+             Çalışan Kodu: @Html.DisplayFor(x => x.EmployeeCode)
+            <br />
+             Telefon Numarası: @Html.DisplayFor(x => x.PhoneNumber)
+            <br />
+        </div>
+    </div>
+    <br />
+    <a href="/Employee/Index/" class="btn btn-warning">Geri Dön</a>
+</div>
+
+

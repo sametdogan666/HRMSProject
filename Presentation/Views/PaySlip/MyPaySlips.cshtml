@@ -1,0 +1,40 @@
+﻿@model List<Entities.Concrete.PaySlip>
+@{
+    ViewData["Title"] = "MyPaySlips";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+
+<div>
+    <h3>Bordro Bilgilerim</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Personel Adı</th>
+                <th>Personel Prim/Awards</th>
+                <th>PErsonel Maaşı</th>
+                <th>Net Ücret</th>
+                <th>Bordro Tarihi</th>
+                <th>Bordro indir</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.AppUser.FullName</td>
+                    <td>@item.Awards</td>
+                    <td>@item.AppUser.Salary</td>
+                    <td>@(item.Awards + item.AppUser.Salary)</td>
+                    <td>@item.CreatedTime</td>
+                    <td><a href="@Url.Action("DownloadDataAsPdfID", "PaySlip", new { id = item.Id })" class="btn btn-primary">Bordro İndir</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+

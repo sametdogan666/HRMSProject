@@ -1,0 +1,34 @@
+﻿@model List<Entities.Concrete.OffDay>
+@{
+    ViewData["Title"] = "MyOffDays";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+<div>
+    <h3>İzin Günlerim</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Personel Adı</th>
+                <th>Açıklama</th>
+                <th>Başlangıç Tarihi</th>
+                <th>Bitiş Tarihi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.AppUser.FullName</td>
+                    <td>@item.Description</td>
+                    <td>@item.StartDate</td>
+                    <td>@item.EndDate</td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+

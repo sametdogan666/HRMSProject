@@ -1,0 +1,36 @@
+﻿@model Entities.Concrete.OffDay
+@{
+    ViewData["Title"] = "AddOffDay";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">İzin İşlemleri</h4>
+                    <div class="form-group">
+                        <label for="exampleInputConfirmPassword1">Ad Soyad</label>
+                        @Html.DropDownListFor(x => x.AppUserId, (List<SelectListItem>)ViewBag.AppUserList, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Açıklama</label>
+                        <input type="text" asp-for="Description" class="form-control" placeholder="Açıklama" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputConfirmPassword1">Başlangıç Tarihi</label>
+                        <input type="date" asp-for="StartDate" class="form-control" placeholder="Doğum Tarihi" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputConfirmPassword1">Bitiş Tarihi</label>
+                        <input type="date" asp-for="EndDate" class="form-control" placeholder="Telefon Numarası" />
+                    </div>
+                    <button type="submit" class="btn btn-primary me-2">Kaydet</button>
+                    <a href="/OffDay/Index/" class="btn btn-light">Değişikliklerden Vazgeç</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+

@@ -1,0 +1,25 @@
+﻿@model Entities.Concrete.Expense
+@{
+    ViewData["Title"] = "UpdateExpense";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+<div class="container">
+    <h1>Gider Güncelleme Sayfası</h1>
+
+    <form method="post">
+        <input type="hidden" asp-for="Id" />
+        <label>Gider Başlık</label>
+        <input type="text" class="form-control" asp-for="Title" style="background-color:darkgray" />
+        <br />
+        <label>Gider Açıklaması</label>
+        <input type="text" class="form-control" asp-for="Description" style="background-color:darkgray" />
+        <label>Gider Miktarı</label>
+        <input type="text" class="form-control" asp-for="Amount" style="background-color:darkgray" />
+        <br />
+        <br />
+        <button class="btn btn-primary">Güncelle</button>
+        <a href="/Expense/Index" class="btn btn-warning">Değişikliklerden Vazgeç</a>
+    </form>
+</div>
+

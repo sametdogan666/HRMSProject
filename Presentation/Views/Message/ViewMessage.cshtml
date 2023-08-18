@@ -1,0 +1,40 @@
+﻿@model Entities.Concrete.Message
+
+@{
+    ViewData["Title"] = "View Message";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Mesaj Detayları</h2>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">ID:</dt>
+                        <dd class="col-sm-8">@Model.MessageID</dd>
+
+                        <dt class="col-sm-4">Adınız:</dt>
+                        <dd class="col-sm-8">@Model.MessageName</dd>
+
+                        <dt class="col-sm-4">E-Mail Adresiniz:</dt>
+                        <dd class="col-sm-8">@Model.MessageMail</dd>
+
+                        <dt class="col-sm-4">Mesaj Konusu:</dt>
+                        <dd class="col-sm-8">@Model.MessageSubject</dd>
+
+                        <dt class="col-sm-4">Açıklama:</dt>
+                        <dd class="col-sm-8">@Model.MessageDescription</dd>
+                    </dl>
+
+                    <div class="text-center">
+                        <a href="@Url.Action("Index", "Message")" class="btn btn-secondary">Geri Dön</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

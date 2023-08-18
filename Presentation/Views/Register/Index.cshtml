@@ -1,0 +1,81 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Kişisel Bilgiler</h4>
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Ad Soyad</label>
+                        <input type="text" asp-for="FullName" class="form-control" placeholder="Ad Soyad" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Kimlik Numarası</label>
+                        <input type="text" asp-for="NationalityId" class="form-control" placeholder="Kimlik Numarası" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputConfirmPassword1">Doğum Tarihi</label>
+                        <input type="date" asp-for="BirthDate" class="form-control" placeholder="Doğum Tarihi" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputConfirmPassword1">Telefon Numarası</label>
+                        <input type="text" asp-for="PhoneNumber" class="form-control" placeholder="Telefon Numarası" />
+                    </div>
+                    <div class="form-group">
+                        <label for="GenderType">Cinsiyet:</label>
+                        <select asp-for="GenderType" id="Gender" name="GenderType" class="form-control" required>
+                            <option value="">Cinsiyet Seçin</option>
+                            <option value="0">Erkek</option>
+                            <option value="1">Kadın</option>
+                            <option value="2">Belirtmek Istemiyor</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Firma Bilgileri</h4>
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Kullanıcı Adı</label>
+                        <input type="text" asp-for="Username" class="form-control" placeholder="Kullanıcı Adı" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Mail Adresi</label>
+                        <input type="email" asp-for="Mail" class="form-control" placeholder="Mail Adresi" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Şifre</label>
+                        <input type="password" asp-for="Password" class="form-control" placeholder="Şifre" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputConfirmPassword1">Departman</label>
+                        @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.DepartmentList, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputConfirmPassword1">Pozisyon</label>
+                        @Html.DropDownListFor(x => x.JobId, (List<SelectListItem>)ViewBag.JobList, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Maaş</label>
+                        <input type="text" asp-for="Salary" class="form-control" placeholder="Maaş" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Çalışan Kodu</label>
+                        <input type="text"  class="form-control" disabled=""/>
+                    </div>
+                    <button type="submit" class="btn btn-primary me-2">Kaydet</button>
+                    <a href="/Employee/Index/" class="btn btn-light">Değişikliklerden Vazgeç</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,50 @@
+﻿@model Entities.Concrete.Message
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="text-center">Mesaj Gönder</h2>
+                    </div>
+                    <div class="card-body">
+                        @using (Html.BeginForm())
+                        {
+                            <div class="form-group">
+                                @Html.HiddenFor(model => model.MessageID)
+                            </div>
+                            <div class="form-group">
+                                <label>Adınız</label>
+                                @Html.TextBoxFor(model => model.MessageName, new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group">
+                                <label>E-Mail Adresiniz</label>
+                                @Html.TextBoxFor(model => model.MessageMail, new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group">
+                                <label>Mesaj Konusu</label>
+                                @Html.TextBoxFor(model => model.MessageSubject, new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group">
+                                <label>Açıklama</label>
+                                @Html.TextAreaFor(model => model.MessageDescription, new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Mesaj Gönder</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

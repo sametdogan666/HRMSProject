@@ -1,0 +1,96 @@
+﻿@model List<Entities.Concrete.Project>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+
+@* <table class="table">
+    <thead>
+    <tr>
+        <th>Proje Başlığı</th>
+        <th>Başlangıç Tarihi</th>
+        <th>Bitiş Tarihi</th>
+        <th>Durumu</th>
+        <th>Proje Elemanları</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var project in Model)
+    {
+        @if (project.StatusDelete == true)
+        {
+            <tr>
+                <td>@project.ProjectTitle</td>
+                <td>@project.StartDate.ToShortDateString()</td>
+                <td>@project.EndDate.ToShortDateString()</td>
+                <td>@project.Status</td>
+                <td>
+                    @foreach (var user in project.AppUsers)
+                    {
+                        <span>@user.FullName</span>
+                        <br />
+                    }
+                </td>
+                <td><a href="/Project/DeleteProject/@project.Id" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Project/EditProject/@project.Id" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>
+ *@
+
+
+
+
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Projeler</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Proje Başlığı</th>
+                                <th>Proje Açıklaması</th>
+                                <th>Proje Başlangıç Tarihi</th>
+                                <th>Proje Bitiş Tarihi</th>
+                                <th>Proje Durumu</th>
+                                <th>İlgili Kullanıcılar</th>
+                                <th>Sil</th>
+                                <th>Güncelle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var project in Model)
+                            {
+                                <tr>
+                                    <td>@project.ProjectTitle</td>
+                                    <td>@project.ProjectDescription</td>
+                                    <td>@project.StartDate.ToShortDateString()</td>
+                                    <td>@project.EndDate.ToShortDateString()</td>
+                                    <td>@project.Status</td>
+                                    <td>
+                                        @foreach (var user in project.AppUsers)
+                                        {
+                                            <span>@user.FullName</span><br />
+                                        }
+                                    </td>
+                                    <td><a href="/Project/DeleteProject/@project.Id" class="btn btn-danger">Sil</a></td>
+                                    <td><a href="/Project/EditProject/@project.Id" class="btn btn-success">Güncelle</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

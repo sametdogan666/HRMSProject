@@ -1,0 +1,22 @@
+﻿@model Entities.Concrete.Department
+@{
+    ViewData["Title"] = "DepartmentDetails";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+<div class="container">
+    <br />
+    <br />
+    <div class="card text-white bg-info mb-3" style="max-width: %100;">
+        <div class="card-header">Departmanlar</div>
+        <div class="card-body">
+            <h6 class="card-title"><strong>Departman Detayları Görüntüleniyor</strong></h6>
+            Departman Adı: @Html.DisplayFor(x => x.DepartmentName)
+            <br />
+        </div>
+    </div>
+    <br />
+    <a href="/Department/Index" class="btn btn-warning">Geri Dön</a>
+</div>
+
+

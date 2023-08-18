@@ -1,0 +1,41 @@
+﻿@model List<UserViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+<div class="container">
+    <br /><br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Ad Soyad</th>
+            <th>Mail</th>
+            <th>Deparman</th>
+            <th>Pozisyon</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Görüntüle</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            @if (item.Status == true)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.FullName</td>
+                    <td>@item.Mail</td>
+                    <td>@item.DepartmentName</td>
+                    <td>@item.JobName</td>
+                    <td><a href="/Employee/DeleteUser/@item.Id" class="btn btn-danger">Sil</a></td>
+                    <td><a href="/Employee/UpdateUser/@item.Id" class="btn btn-success">Güncelle</a></td>
+                    <td><a href="/Employee/UserDetail/@item.Id" class="btn btn-info">Görüntüle</a></td>
+                </tr>
+            }
+        }
+    </table>
+
+</div>
+
+
+

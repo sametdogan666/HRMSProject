@@ -1,0 +1,69 @@
+﻿@model Entities.Concrete.Project
+@{
+    ViewData["Title"] = "AddProject";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Proje Bilgileri</h4>
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Proje Başlığı</label>
+                        <input type="text" asp-for="ProjectTitle" class="form-control" placeholder="Proje Başlığı" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Proje Açıklaması</label>
+                        <input type="text" asp-for="ProjectDescription" class="form-control" placeholder="Proje Açıklaması" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Proje Başlangıç Tarihi</label>
+                        <input type="date" asp-for="StartDate" class="form-control" placeholder="Proje Başlangıç Tarihi" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Proje Bitiş Tarihi</label>
+                        <input type="date" asp-for="EndDate" class="form-control" placeholder="Proje Bitiş Tarihi" />
+                    </div>
+                    <div class="form-group">
+                        <label for="ProjectStatus">Proje Durumu:</label>
+                        <select id="ProjectStatus" name="ProjectStatus" class="form-control" required>
+                            <option value="">Proje Durumu Seçin</option>
+                            <option value="0">Başladı</option>
+                            <option value="1">Devam Ediyor</option>
+                            <option value="2">Başarılı Bitti</option>
+                            <option value="3">Başarısız Bitti</option>
+                        </select>
+                    </div>
+                    <div id="insert-section">
+                        <div id="personel-select">
+                            <div class="form-group">
+                                <label>Personel</label>
+                                @Html.DropDownList("AppUsersId", null, "Personel Seçiniz", htmlAttributes: new { @class = "form-control" })
+                                <i onclick="PersonelEkle()" class="mdi mdi-arrow-all"></i>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary me-2">Kaydet</button>
+                    <a href="/Project/Index/" class="btn btn-light">Değişikliklerden Vazgeç</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    var parentDiv = $("#insert-section");
+    var oldSelectDiv = $("#personel-select");
+
+    function PersonelEkle() {
+        var newSelectDiv = oldSelectDiv.clone();
+        newSelectDiv.find("select").val([]); // Clear selected values
+        parentDiv.append(newSelectDiv);
+    }
+</script>

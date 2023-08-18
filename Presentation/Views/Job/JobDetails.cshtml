@@ -1,0 +1,24 @@
+﻿@model Entities.Concrete.Job
+@{
+    ViewData["Title"] = "JobDetails";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+<div class="container">
+    <br />
+    <br />
+    <div class="card text-white bg-info mb-3" style="max-width: %100;">
+        <div class="card-header">Pozisyonlar</div>
+        <div class="card-body">
+            <h6 class="card-title"><strong>Pozisyon Detayları Görüntüleniyor</strong></h6>
+            Pozisyon Adı: @Html.DisplayFor(x => x.JobName)
+            <br/>
+            Pozisyon Durumu: @Html.DisplayFor(x => x.Status)
+            <br />
+        </div>
+    </div>
+    <br />
+    <a href="/Department/Index" class="btn btn-warning">Geri Dön</a>
+</div>
+
+

@@ -1,0 +1,53 @@
+﻿@model List<Entities.Concrete.Message>
+
+@{
+    ViewData["Title"] = "Message List";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Mesaj Listesi</h2>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ad</th>
+                                <th>E-Mail</th>
+                                <th>Konu</th>
+                                <th>Açıklama</th>
+                                <th>Sil</th>
+                                <th>Görüntüle</th>  
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var message in Model)
+                            {
+                                <tr>
+                                    <td>@message.MessageID</td>
+                                    <td>@message.MessageName</td>
+                                    <td>@message.MessageMail</td>
+                                    <td>@message.MessageSubject</td>
+                                    <td>@message.MessageDescription</td>
+                                    <td>
+                                        <a href="@Url.Action("DeleteMessage", "Message", new { id = message.MessageID })" class="btn btn-danger btn-sm">Sil</a>
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("ViewMessage", "Message", new { id = message.MessageID })" class="btn btn-primary btn-sm">Görüntüle</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br />
+            <a href="@Url.Action("AddMessage", "Message")" class="btn btn-success btn-sm">Mesaj Ekle</a>
+        </div>
+    </div>
+</div>

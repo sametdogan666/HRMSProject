@@ -1,0 +1,36 @@
+﻿@model List<Entities.Concrete.OffDay>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+<div class="container">
+    <br /><br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Ad Soyad</th>
+            <th>Açıklama</th>
+            <th>Başlangıç Tarihi</th>
+            <th>Bitiş Tarihi</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+         @*    <th>Görüntüle</th> *@
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>            
+                <td>@item.AppUser.FullName</td>            
+                <td>@item.Description</td>            
+                <td>@item.StartDate</td>            
+                <td>@item.EndDate</td>
+                <td><a href="/OffDay/DeleteOffDay/@item.Id" class="btn btn-danger">Sil</a></td>
+                <td><a href="/OffDay/UpdateOffDay/@item.Id" class="btn btn-success">Güncelle</a></td>
+               @*  <td><a href="/OffDay/OffDayDetails/@item.Id" class="btn btn-info">Görüntüle</a></td> *@
+            </tr>
+        }
+    </table>
+
+</div>
+

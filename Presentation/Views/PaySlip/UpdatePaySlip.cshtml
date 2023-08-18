@@ -1,0 +1,29 @@
+﻿@model Entities.Concrete.PaySlip
+@{
+    ViewData["Title"] = "UpdatePaySlip";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+<div class="container">
+    <h2>Bordro Düzenleme</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AppUserId, "Personeller")
+            @Html.DropDownListFor(model => model.AppUserId, (SelectList)ViewBag.AppUsers, "Personeller", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.AppUserId, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Awards)
+            @Html.TextBoxFor(model => model.Awards, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Awards, "", new { @class = "text-danger" })
+        </div>
+
+        <button type="submit" class="btn btn-info">Değişiklikleri Kaydet</button>
+        <a href="/PaySlip/Index" class="btn btn-warning">Değişikliklerden Vazgeç</a>
+    }
+</div>

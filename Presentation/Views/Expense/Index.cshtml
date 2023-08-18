@@ -1,0 +1,33 @@
+﻿@model List<Entities.Concrete.Expense>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+<div class="container">
+    <br /><br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Gider Başlık</th>
+            <th>Gider Açıklaması</th>
+            <th>Gider Miktarı</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Görüntüle</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Title</td>
+                <td>@item.Description</td>
+                <td>@item.Amount</td>
+                <td><a href="/Expense/DeleteExpense/@item.Id" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Expense/UpdateExpense/@item.Id" class="btn btn-success">Güncelle</a></td>
+                <td><a href="/Expense/ExpenseDetails/@item.Id" class="btn btn-info">Görüntüle</a></td>
+            </tr>
+        }
+    </table>
+
+</div>

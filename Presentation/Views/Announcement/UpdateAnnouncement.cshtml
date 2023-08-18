@@ -1,0 +1,26 @@
+﻿@model Entities.Concrete.Announcement
+@{
+    ViewData["Title"] = "UpdateAnnouncement";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+<div class="container">
+    <h1>Duyuru Güncelleme Sayfası</h1>
+
+    <form method="post">
+        <input type="hidden" asp-for="Id" />
+        <label>Duyuru Başlık</label>
+        <input type="text" class="form-control" asp-for="Title" style="background-color:darkgray" />
+        <br />
+        <label>Duyuru Konusu</label>
+        <input type="text" class="form-control" asp-for="Content" style="background-color:darkgray" />
+        <br />
+        <label>Duyuru Tarihi</label>
+        <input asp-for="CreatedTime" class="form-control" type="datetime-local" style="background-color:#b1b3b1" />
+        <br />
+        <br />
+        <button class="btn btn-primary">Güncelle</button>
+        <a href="/Announcement/Index" class="btn btn-warning">Değişikliklerden Vazgeç</a>
+    </form>
+</div>
+

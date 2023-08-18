@@ -1,0 +1,27 @@
+﻿@model Entities.Concrete.Announcement
+@{
+    ViewData["Title"] = "AnnouncementDetails";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+
+<div class="container">
+    <br />
+    <br />
+    <div class="card text-white bg-info mb-3" style="max-width: %100;">
+        <div class="card-header">Duyurular</div>
+        <div class="card-body">
+            <h6 class="card-title"><strong>Duyuru Detayları Görüntüleniyor</strong></h6>
+            Duyuru Başlık: @Html.DisplayFor(x => x.Title)
+            <br />
+            Duyuru Konusu: @Html.DisplayFor(x => x.Content)
+            <br />
+            Duyuru Tarihi: @Html.DisplayFor(x => x.CreatedTime)
+        </div>
+    </div>
+    <br />
+    <a href="/Announcement/Index" class="btn btn-warning">Geri Dön</a>
+</div>
+
+
+

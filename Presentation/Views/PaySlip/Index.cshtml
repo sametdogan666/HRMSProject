@@ -1,0 +1,54 @@
+﻿@model List<Entities.Concrete.PaySlip>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+    ViewBag.Title = "PaySlips";
+}
+
+
+
+<div class="container">
+    @using (Html.BeginForm("Index", "PaySlip", FormMethod.Get))
+    {
+        @Html.DropDownList("selectedAppUser", (SelectList)ViewBag.AppUserNames, "Personeller", new { @class = "form-control" })
+        <br />
+        <label for="startDate">Başlangıç Tarihi:</label>
+        <input type="date" id="startDate" name="startDate" class="form-control">
+        <br />
+        <label for="endDate">Bitiş Tarihi:</label>
+        <input type="date" id="endDate" name="endDate" class="form-control">
+        <br />
+        <button class="btn btn-info" type="submit">Filtrele</button>
+    }
+    <br /><br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Personel Adı</th>
+            <th>Maaş Prim</th>
+            <th>Maaş</th>
+            <th>Toplam Ücret</th>
+            <th>Tarih</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Bordro indir</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.AppUser.FullName</td>
+                <td>@item.Awards</td>
+                <td>@item.AppUser.Salary</td>
+                <td>@(item.Awards+item.AppUser.Salary)</td>
+                <td>@item.CreatedTime</td>
+                <td><a href="/PaySlip/DeletePaySlip/@item.Id" class="btn btn-danger">Sil</a></td>
+                <td><a href="/PaySlip/UpdatePaySlip/@item.Id" class="btn btn-success">Güncelle</a></td>
+                <td><a href="@Url.Action("DownloadDataAsPdfID", "PaySlip", new { id = item.Id })" class="btn btn-primary">Bordro İndir</a></td>
+            </tr>
+        }
+    </table>
+    <br />
+    <br />
+    <a href="@Url.Action("DownloadAllPaySlips", "PaySlip")" class="btn btn-primary">Bordroları İndir</a>
+</div>

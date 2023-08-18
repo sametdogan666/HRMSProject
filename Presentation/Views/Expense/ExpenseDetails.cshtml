@@ -1,0 +1,28 @@
+﻿@model Entities.Concrete.Expense
+
+@{
+    ViewData["Title"] = "ExpenseDetails";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+
+<div class="container">
+    <br />
+    <br />
+    <div class="card text-white bg-info mb-3" style="max-width: %100;">
+        <div class="card-header">Giderler</div>
+        <div class="card-body">
+            <h6 class="card-title"><strong>Gider Detayları Görüntüleniyor</strong></h6>
+            Gider Başlık: @Html.DisplayFor(x => x.Title)
+            <br />
+            Gider Açıklama: @Html.DisplayFor(x => x.Description)
+            <br />
+            Gider Miktarı: @Html.DisplayFor(x => x.Amount)
+        </div>
+    </div>
+    <br />
+    <a href="/Expense/Index" class="btn btn-warning">Geri Dön</a>
+</div>
+
+
+

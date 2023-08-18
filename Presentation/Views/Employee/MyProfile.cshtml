@@ -1,0 +1,40 @@
+﻿@model Entities.Concrete.AppUser
+@{
+    ViewData["Title"] = "MyProfile";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+<div>
+    <h3>Kişisel Bilgilerim</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Ad Soyad</th>
+                <th>Mail</th>
+                <th>Deparman</th>
+                <th>Pozisyon</th>
+                <th>Telefon Numarası</th>
+                <th>Brüt Maaş</th>
+
+            </tr>
+        </thead>
+        <tbody>
+         
+                <tr>
+                <td>@Model.Id</td>
+                <td>@Model.FullName</td>
+                <td>@Model.Email</td>
+                <td>@Model.Department.DepartmentName</td>
+                <td>@Model.Job.JobName</td>
+                <td>@Model.PhoneNumber</td>
+                <td>@Model.Salary</td>
+                 
+                </tr>
+           
+        </tbody>
+    </table>
+
+</div>
+

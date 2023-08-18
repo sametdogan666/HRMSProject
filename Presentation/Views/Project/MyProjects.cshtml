@@ -1,0 +1,36 @@
+﻿@model List<Entities.Concrete.Project>
+@{
+    ViewData["Title"] = "MyProjects";
+    Layout = "~/Views/Shared/_AdminTemplateLayout.cshtml";
+}
+
+
+
+<h3>Bulunduğum Projeler</h3>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Proje Başlığı</th>
+        <th>Proje Açıklaması</th>
+        <th>Başlangıç Tarihi</th>
+        <th>Bitiş Tarihi</th>
+        <th>Durumu</th>
+      
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var project in Model)
+    {
+        <tr>
+            <td>@project.ProjectTitle</td>
+            <td>@project.ProjectDescription</td>
+            <td>@project.StartDate</td>
+            <td>@project.EndDate</td>
+            <td>@project.Status</td>
+          
+        </tr>
+    }
+    </tbody>
+</table>
+
