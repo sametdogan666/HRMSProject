@@ -140,7 +140,7 @@ namespace Presentation.Controllers
         public ActionResult DownloadAllPaySlips()
         {
             var paySlips = _hrmsContext.PaySlips.Include(p => p.AppUser).ToList();
-            string logoImagePath = "C:\\Users\\sdoqa\\OneDrive\\Masaüstü\\HRMS1908\\HRMS\\7533464.png";
+            string logoImagePath = "C:\\Users\\sdoqa\\OneDrive\\Masaüstü\\Repos\\Miltek\\HRMS\\HRMS\\7533464.png";
 
             iTextSharp.text.Image logoImage = iTextSharp.text.Image.GetInstance(logoImagePath);
             logoImage.Alignment = iTextSharp.text.Image.ALIGN_LEFT; // Logoyu solo hizala

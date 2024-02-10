@@ -11,7 +11,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{970EB42E-D0BE-441F-A140-A2CD6E86AB28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{D520FC7A-FC01-4DA4-9D34-121A6FD45BDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{D520FC7A-FC01-4DA4-9D34-121A6FD45BDF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8793C630-A35D-404D-9587-93746365FE06}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,26 +50,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {03F33206-8B71-44AB-BCCA-06340BC2CE36}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 6
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://dev.azure.com/mhndstunahan
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Presentation\\Presentation.csproj
-		SccProjectName1 = Presentation
-		SccLocalPath1 = Presentation
-		SccProjectUniqueName2 = Business\\Business.csproj
-		SccProjectName2 = Business
-		SccLocalPath2 = Business
-		SccProjectUniqueName3 = DataAccess\\DataAccess.csproj
-		SccProjectName3 = DataAccess
-		SccLocalPath3 = DataAccess
-		SccProjectUniqueName4 = Entities\\Entities.csproj
-		SccProjectName4 = Entities
-		SccLocalPath4 = Entities
-		SccProjectUniqueName5 = Core\\Core.csproj
-		SccProjectName5 = Core
-		SccLocalPath5 = Core
 	EndGlobalSection
 EndGlobal
